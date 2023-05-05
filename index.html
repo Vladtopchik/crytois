@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+function butclick() {
+    let input = document.getElementById("input");
+    let text = document.getElementById("area");
+    let but = document.getElementById("copy");
+    let value = input.value;
+    let reversedText = value.split('').reverse().join('');
+    text.innerText = reversedText;
+    if (reversedText != ''){
+    but.style.display = 'block';
+    } else{
+    but.style.display = 'none';
+    };
+};
+function copytext() {
+  const textarea = document.getElementById("area");
+  textarea.select();
+  document.execCommand('copy');
+}
+
+    </script>
+    <style>
+.container {
+    max-width: 390px;
+}
+body {
+    display: flex;
+    justify-content: center;
+
+}
+.inner{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto, auto;
+}
+.item {
+    text-align:left;
+}
+input {
+    border-radius: 10px;
+    border-color: blueviolet;
+    border-width: 3px;
+    font-size: larger;
+    color: blueviolet;
+
+
+    width: 300px;
+    height: 50px;
+}
+input::placeholder{
+    color: blueviolet;
+    font-size:larger;
+
+}
+.but{
+    color: white;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 10px;
+    width: 250px;
+    height: 50px;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 400px;
+}
+.but:hover {
+    background-color: rgb(191, 126, 252);
+}
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: blueviolet;
+    position: absolute;
+    top: 40px;
+}
+textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    border-radius: 10px;
+    border-color: blueviolet;
+    border-width: 4px;
+
+    color: blueviolet;
+    position: absolute;
+    top: 120px;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    resize: none;
+}
+.newbut {
+    display: none;
+    color: blueviolet;
+    background-color: white;
+    border-color: blueviolet;
+    border-radius: 10px;
+    border-width: 5px;
+    width: 200px;
+    height: 40px;
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 345px;
+    text-align: center;
+}
+.newbut:hover {
+    border-color: rgb(191, 126, 252);
+    color: rgb(191, 126, 252);
+}
+    </style>
+</head>
+<body>
+  <div class="container">
+      <div class="inner">
+          <div class="item">
+            <input id="input" type="text" placeholder="Text to reverse">
+          </div>
+          <div class="item">
+            <p>Reversed text:</p>
+          </div>
+          <div class="item">
+            <button onclick="copytext()" id="copy" class="newbut">Copy</button>
+          </div>
+          <div class="item">
+            <button class="but" onclick="butclick()">Confim</button>
+          </div>
+            <div class="item">
+            <textarea readonly id="area">Reversed text</textarea>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
