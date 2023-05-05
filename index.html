@@ -34,8 +34,8 @@ function copytext() {
   document.execCommand('copy');
 };
 
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
-    tg.sendData('justhello');
+Telegram.WebApp.onEvent('mainButtonClicked', function(){
+    tg.close();
 });
     </script>
     <style>
