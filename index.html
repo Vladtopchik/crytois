@@ -32,6 +32,7 @@ function copytext() {
   textarea.select();
   document.execCommand('copy');
 };
+
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
     let input = document.getElementById("input");
     let value = input.value;
