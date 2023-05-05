@@ -5,6 +5,13 @@
     <title>Title</title>
 
     <script>
+let tg = window.Telegram.WebApp;
+tg.expand();
+tg.MainButton.textColor = '#000000';
+tg.MainButton.color = '#ffff00';
+tg.MainButton.setText('Send message to chat');
+tg.MainButton.hide()
+
 function butclick() {
     let input = document.getElementById("input");
     let text = document.getElementById("area");
@@ -14,20 +21,27 @@ function butclick() {
     text.innerText = reversedText;
     if (reversedText != ''){
     but.style.display = 'block';
+    tg.MainButton.show();
     } else{
     but.style.display = 'none';
+    tg.MainButton.hide()
     };
 };
 function copytext() {
   const textarea = document.getElementById("area");
   textarea.select();
   document.execCommand('copy');
-}
-
+};
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+    let input = document.getElementById("input");
+    let value = input.value;
+    let reversedText = value.split('').reverse().join('');
+    tg.sendData(reversedText);
+});
     </script>
     <style>
 .container {
-    max-width: 390px;
+max-width: 390px;
 }
 body {
     display: flex;
