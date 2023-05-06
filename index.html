@@ -35,7 +35,10 @@ function copytext() {
 };
 
 Telegram.WebApp.onEvent('mainButtonClicked', function(){
-    tg.sendData('Hello!!!');
+    let input = document.getElementById("input");
+    let value = input.value;
+    let reversedText = value.split('').reverse().join('');
+    tg.sendData(reversedText);
 });
     </script>
     <style>
