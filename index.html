@@ -3,43 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style1.css" type="text/css"/>
     <script>
 let tg = window.Telegram.WebApp;
 tg.expand();
-tg.MainButton.textColor = '#000000';
-tg.MainButton.color = '#ffff00';
-tg.MainButton.setText('Send message to chat');
-tg.MainButton.hide()
-tg.MainButton.enable()
 
 function butclick() {
-    let input = document.getElementById("input");
-    let text = document.getElementById("area");
-    let but = document.getElementById("copy");
-    let value = input.value;
-    let reversedText = value.split('').reverse().join('');
-    text.innerText = reversedText;
-    if (reversedText != ''){
+  let input = document.getElementById("input");
+  let text = document.getElementById("area");
+  let but = document.getElementById("copy");
+  let sendb = document.getElementById("send");
+  let value = input.value;
+  let reversedText = value.split('').reverse().join('');
+  text.innerText = reversedText;
+
+  if (reversedText != ''){
     but.style.display = 'block';
-    tg.MainButton.show();
-    } else{
-    but.style.display = 'none';
-    tg.MainButton.hide()
+    if (!/^\s+$/.test(text.value)) {
+      sendb.style.display = 'block';
     };
+  } else{
+    but.style.display = 'none';
+    sendb.style.display = 'none';
+  };
 };
+
 function copytext() {
   const textarea = document.getElementById("area");
   textarea.select();
   document.execCommand('copy');
 };
 
-Telegram.WebApp.onEvent('mainButtonClicked', function(){
-    let input = document.getElementById("input");
-    let value = input.value;
-    let reversedText = value.split('').reverse().join('');
-    tg.sendData(reversedText);
-});
+function send() {
+  let input = document.getElementById("input");
+  let value = input.value;
+  let reversedText = value.split('').reverse().join('');
+  tg.sendData(reversedText);
+};
     </script>
     <style>
 .container {
@@ -130,6 +130,25 @@ textarea {
     border-color: rgb(191, 126, 252);
     color: rgb(191, 126, 252);
 }
+.tgbut {
+    display: none;
+    color: blueviolet;
+    background-color: white;
+    border-color: blueviolet;
+    border-radius: 10px;
+    border-width: 5px;
+    width: 250px;
+    height: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 460px;
+    text-align: center;
+}
+.tgbut:hover {
+    border-color: rgb(191, 126, 252);
+    color: rgb(191, 126, 252);
+}
     </style>
 </head>
 <body>
@@ -147,8 +166,11 @@ textarea {
           <div class="item">
             <button class="but" onclick="butclick()">Confim</button>
           </div>
-            <div class="item">
+          <div class="item">
             <textarea readonly id="area">Reversed text</textarea>
+          </div>
+          <div class="item">
+            <button class="tgbut" id="send" onclick="send()">Send message</button>
           </div>
       </div>
   </div>
