@@ -39,10 +39,10 @@ function copytext() {
 
 
 function sends() {
-  let input = document.getElementById("area");
-  let value = input.value;
-  let reversedText = value.split('').reverse().join('');
-  tg.sendData(reversedText);
+
+  tg.sendData(areat.innerText);
+  let bob = document.getElementById("send");
+  bob.innerText = 'Hello';
 };
     </script>
     <style>
