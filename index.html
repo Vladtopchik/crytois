@@ -34,12 +34,25 @@ function copytext() {
   document.execCommand('copy');
 };
 
-function send() {
+const button = document.getElementById("my-send");
+
+function handleClick() {
   let input = document.getElementById("input");
   let value = input.value;
   let reversedText = value.split('').reverse().join('');
   tg.sendData(reversedText);
-};
+}
+
+button.addEventListener("click", handleClick);
+
+
+
+<!--function send() {-->
+<!--  let input = document.getElementById("input");-->
+<!--  let value = input.value;-->
+<!--  let reversedText = value.split('').reverse().join('');-->
+<!--  tg.sendData(reversedText);-->
+<!--};-->
     </script>
     <style>
 .container {
@@ -170,7 +183,7 @@ textarea {
             <textarea readonly id="area">Reversed text</textarea>
           </div>
           <div class="item">
-            <button class="tgbut" id="send" onclick="send()">Send message</button>
+            <button class="tgbut" id="send">Send message</button>
           </div>
       </div>
   </div>
