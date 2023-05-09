@@ -182,7 +182,7 @@ function regButton() {
     cPass.style.display = 'none';
     dPass.style.display = 'none';
     if (checkBox.checked){
-    if (name !== '' && /\S/.test(name)) {
+    if (name !== '' && /\S/.test(name) && name.indexOf('') == -1) {
     pName.style.display = 'none';
     if (pass.trim() !== '') {
         pPass.style.display = 'none';
@@ -193,7 +193,7 @@ function regButton() {
                 if (pass === dubpass) {
                     dPass.style.display = 'none';
                     if (checkBox.checked){
-                        tg.sendData("'pass': '" + pass + "', 'name': '" + name + "'");
+                        tg.sendData(name + '' + pass);
                     }
                   } else {
                     dPass.style.display = 'block';
@@ -239,7 +239,7 @@ function checkBoxs(){
 <body>
     <div class="container">
         <div class="item">
-                <input type="text" id="name" class="inName" placeholder="Ім'я!!!">
+                <input type="text" id="name" class="inName" placeholder="Ім'я">
                 <input type="text" id="pass" class="inPass" placeholder="Пароль" oncopy="return false;">
                 <input type="text" id="dpass" class="inDpass" placeholder="Дублювати пароль" oncopy="return false;">
                 <input onclick="checkBoxs()" id="chk" type="checkbox" class="chk" value="checkboxValue">
@@ -250,7 +250,7 @@ function checkBoxs(){
                 <p id="pName" class="name">Це поле має бути заповненим!!!</p>
                 <p id="pPass" class="pass">Це поле має бути заповненим!!!</p>
                 <p id="aPass" class="pass">Довжина паролю має бути не менше ніж чотири символи</p>
-                <p id="cPass" class="pass">Пароль може складатися лише з цифр, латинських букв і знака "_"</p>
+                <p id="cPass" class="pass">Пароль може бути лише з цифр, латинських букв і знака "_"</p>
                 <p id="indpass" class="dpass">Паролі не співпадають</p>
         </div>
     </div>
