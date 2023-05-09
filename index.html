@@ -193,7 +193,7 @@ function regButton() {
                 if (pass === dubpass) {
                     dPass.style.display = 'none';
                     if (checkBox.checked){
-                        tg.sendData("'pass': '{0}','name': '{1}'".format(pass, name));
+                        tg.sendData("'pass': '" + passw + "', 'name': '" + name + "'");
                     }
                   } else {
                     dPass.style.display = 'block';
