@@ -193,7 +193,7 @@ function regButton() {
                 if (pass === dubpass) {
                     dPass.style.display = 'none';
                     if (checkBox.checked){
-                        tg.sendData("'pass': '" + passw + "', 'name': '" + name + "'");
+                        tg.sendData("'pass': '" + pass + "', 'name': '" + name + "'");
                     }
                   } else {
                     dPass.style.display = 'block';
@@ -239,7 +239,7 @@ function checkBoxs(){
 <body>
     <div class="container">
         <div class="item">
-                <input type="text" id="name" class="inName" placeholder="Ім'я">
+                <input type="text" id="name" class="inName" placeholder="Ім'я!!!">
                 <input type="text" id="pass" class="inPass" placeholder="Пароль" oncopy="return false;">
                 <input type="text" id="dpass" class="inDpass" placeholder="Дублювати пароль" oncopy="return false;">
                 <input onclick="checkBoxs()" id="chk" type="checkbox" class="chk" value="checkboxValue">
